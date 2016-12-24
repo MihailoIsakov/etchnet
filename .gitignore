@@ -2,4 +2,5 @@
 *.swo
 *.pyc
 *.npz
+*.coe
 venv/
