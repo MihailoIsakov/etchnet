@@ -36,7 +36,7 @@ def fixed_point_vector(vector, min_bit, max_bit):
     return [format(int(el), fmt_str) for el in vector]
 
 
-def _vector2coe(vector, min_bit, max_bit):
+def _vector2strings(vector, min_bit, max_bit):
     str_vectors = []
     outputs = []
 
@@ -49,17 +49,31 @@ def _vector2coe(vector, min_bit, max_bit):
     return outputs
 
 
-def vectors2coe(vectors, min_bit=8, max_bit=8):
+def vectors2strings(vectors, min_bit, max_bit):
     outputs = []
 
     for vector in vectors:
-        outputs +=  _vector2coe(vector, min_bit, max_bit)
+        outputs +=  _vector2strings(vector, min_bit, max_bit)
 
     return outputs
 
 
-# if __name__ == "__main__":
-    # main1()
+def vectors2coe(path, vectors, min_bit=8, max_bit=8):
+    strings = vectors2strings(vectors, min_bit, max_bit)
+
+    f = open(path, "w")
+    
+    f.write("; Storing a vector with each value broken down in n columns\n")
+    f.write("memory_initialization_radix = 2\n")
+    f.write("memory_initialization_vector = \n")
+
+    for s in strings:
+        f.write(s + "\n")
+
+
+if __name__ == "__main__":
+    vec = np.random.rand(10, 20)
+    vectors2coe("test.coe", vec)
 
 
     
