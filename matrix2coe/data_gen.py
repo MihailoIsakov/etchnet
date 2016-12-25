@@ -72,10 +72,13 @@ def vectors2coe(path, vectors, min_bit=8, max_bit=8):
 
 
 if __name__ == "__main__":
-    vec = np.random.rand(10, 20)
-    vectors2coe("test.coe", vec)
+    import sys
 
+    path  = sys.argv[1]
+    width = int(sys.argv[2])
+    depth = int(sys.argv[3])
 
-    
-
+    print("Generating {} vector with {} rows of {} elements".format(path, depth, width))
+    vec = np.random.rand(depth, width)
+    vectors2coe(path, vec)
 
