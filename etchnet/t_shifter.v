@@ -34,7 +34,7 @@ module t_shifter;
 	wire out2;
 
 	// Instantiate the Unit Under Test (UUT)
-	shifter #(3, 5) uut (
+	shifter #(0, 3) uut (
 		.clk(clk), 
 		.rst(rst), 
 		.data(data), 
@@ -50,7 +50,7 @@ module t_shifter;
 
 	initial begin
 		// Initialize Inputs
-		clk = 0;
+		clk = 1;
 		rst = 0;
 		data = 0;
 

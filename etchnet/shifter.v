@@ -13,17 +13,17 @@ module shifter
 
     localparam regsize = (shift1 > shift2) ? shift1 : shift2;
 
-    reg [regsize-1:0] bits;
+    reg [regsize:0] bits;
 
     always @ (posedge clk) begin
         if (rst)
             bits = 0;
         else begin
-            bits = {bits[regsize-2:0], data};
+            bits = {bits[regsize-1:0], data};
         end
     end
 
-    assign out1 = bits[shift1-1];
-    assign out2 = bits[shift2-1];
+    assign out1 = bits[shift1];
+    assign out2 = bits[shift2];
 
 endmodule
