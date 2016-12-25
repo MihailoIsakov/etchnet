@@ -26,7 +26,6 @@ module t_serial_adder;
 
 	// Inputs
 	reg clk;
-	reg rst;
 	reg in1;
 	reg in2;
 
@@ -36,7 +35,6 @@ module t_serial_adder;
 	// Instantiate the Unit Under Test (UUT)
 	serial_adder uut (
 		.clk(clk), 
-		.rst(rst), 
 		.in1(in1), 
 		.in2(in2), 
 		.sum(out)
@@ -48,12 +46,8 @@ module t_serial_adder;
 	initial begin
 		// Initialize Inputs
 		clk = 0;
-		rst = 0;
 		in1 = 0;
 		in2 = 0;
-
-        #10 rst = 1;
-        #10 rst = 0;
 
         #5
         #2  in1 = 1;
